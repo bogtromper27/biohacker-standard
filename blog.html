@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — Biohacker Standard</title>
+<meta name="description" content="Long-form biohacking, peptide, and longevity breakdowns — every claim cited to a published trial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .featured { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;
+    background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius); overflow: hidden; }
+  .featured .media { border-radius: 0; aspect-ratio: 16 / 11; height: 100%; }
+  .featured-body { padding: 40px 42px; }
+  .featured-body h2 { font-size: clamp(26px, 3vw, 38px); margin: 14px 0 14px; }
+  .featured-body p { color: var(--ink-soft); font-size: 17px; margin-bottom: 22px; max-width: 46ch; }
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin: 40px 0 26px; }
+  .sortbar { display: flex; gap: 8px; }
+  .newsletter-band { background: var(--ink); color: #fff; border-radius: var(--radius); padding: 48px 44px; text-align: center; }
+  .newsletter-band h2 { color: #fff; margin-bottom: 12px; }
+  .newsletter-band p { color: #B7BEC8; font-size: 17px; margin-bottom: 24px; }
+  .nl-form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; }
+  .nl-form input { flex: 1; padding: 14px 20px; border-radius: var(--radius-pill); border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.06); color: #fff; font-family: inherit; font-size: 15px; }
+  .nl-form input::placeholder { color: #8891A0; }
+  @media (max-width: 860px) { .featured { grid-template-columns: 1fr; } .featured .media { aspect-ratio: 16/9; } .featured-body { padding: 30px 26px; } .nl-form { flex-direction: column; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Biohacker Standard home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" stroke="#1D5A43" stroke-width="1.1"/>
+        <path d="M12 6c0 4 8 4 8 10s-8 6-8 10" stroke="#1D5A43" stroke-width="1.4"/>
+        <path d="M20 6c0 4-8 4-8 10s8 6 8 10" stroke="#AE8B4E" stroke-width="1.4"/>
+        <path d="M12.5 11h7M12 16h8M12.5 21h7" stroke="#1D5A43" stroke-width="1"/>
+      </svg>
+      <b>Biohacker Standard</b>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="directory.html">Directory</a>
+    </div>
+    <a href="index.html#get-guide" class="btn btn-blue nav-cta">Get the Guide</a>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="container">
+    <span class="eyebrow">Knowledge hub</span>
+    <h1 style="margin-top:14px">The Blog</h1>
+    <p>Long-form breakdowns on peptides, longevity, and human performance — every claim cited to a published trial, never marketing copy.</p>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<div class="container">
+  <article class="featured">
+    <div class="media" role="img" aria-label="Featured article image slot">
+      <div class="glyph"><svg viewBox="0 0 200 200" fill="none"><path d="M70 20c0 30 60 30 60 60s-60 30-60 60M130 20c0 30-60 30-60 60s60 30 60 60" stroke="#6FBE97" stroke-width="1.4"/><path d="M74 45h52M70 80h60M74 115h52" stroke="#6FBE97" stroke-width="1.4"/><circle cx="100" cy="80" r="5" fill="#fff"/></svg></div>
+      <span class="tag">Featured</span>
+    </div>
+    <div class="featured-body">
+      <div class="kicker"><span class="tagpill">Beginner's guide</span><span class="meta">12 min read</span></div>
+      <h2>What is biohacking, really? A sourced beginner's guide</h2>
+      <p>Cutting through the supplement-influencer noise: what the term actually covers, which claims hold up in the literature, and how to start without wasting money or risking your health.</p>
+      <a href="#" class="btn btn-blue">Read article →</a>
+    </div>
+  </article>
+</div>
+
+<!-- TOOLBAR + FILTERS -->
+<div class="container">
+  <div class="toolbar">
+    <div class="chips" role="tablist" aria-label="Filter articles by category">
+      <button class="chip active">All</button>
+      <button class="chip">Longevity</button>
+      <button class="chip">Peptides</button>
+      <button class="chip">Nootropics</button>
+      <button class="chip">Sleep &amp; Recovery</button>
+      <button class="chip">Lab Testing</button>
+      <button class="chip">Vendors</button>
+    </div>
+    <div class="sortbar">
+      <button class="chip active">Latest</button>
+      <button class="chip">Most read</button>
+    </div>
+  </div>
+</div>
+
+<!-- GRID -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="grid g3">
+      <a class="card" href="#"><div class="media"><span class="tag">Lab Testing</span></div><div class="card-body"><div class="kicker"><span class="tagpill">Lab Testing</span><span class="meta">Aug 18 · 8 min</span></div><h3>What a COA actually proves — and what it doesn't</h3><p>Identity, purity, and contaminant panels in plain terms, plus the gaps a certificate can quietly leave open.</p></div></a>
+      <a class="card" href="#"><div class="media"><span class="tag">Peptides</span></div><div class="card-body"><div class="kicker"><span class="tagpill">Peptides</span><span class="meta">Aug 11 · 11 min</span></div><h3>Reading a peptide study without fooling yourself</h3><p>Sample size, endpoints, and the difference between a mechanism and a measured outcome.</p></div></a>
+      <a class="card" href="#"><div class="media"><span class="tag">Vendors</span></div><div class="card-body"><div class="kicker"><span class="tagpill">Vendors</span><span class="meta">Aug 4 · 6 min</span></div><h3>The 5 questions every supplier should answer</h3><p>What separates a lab that shows its work from one hoping you won't ask.</p></div></a>
+      <a class="card" href="#"><div class="media"><span class="tag">Longevity</span></div><div class="card-body"><div class="kicker"><span class="tagpill">Longevity</span><span class="meta">Jul 28 · 10 min</span></div><h3>Cellular senescence for non-scientists</h3><p>What "zombie cells" are, why they accumulate, and where the senolytics evidence actually stands.</p></div></a>
+      <a class="card" href="#"><div class="media"><span class="tag">Nootropics</span></div><div class="card-body"><div class="kicker"><span class="tagpill">Nootropics</span><span class="meta">Jul 21 · 9 min</span></div><h3>The nootropics with real trials behind them</h3><p>Separating the handful of studied compounds from the stack-marketing that surrounds them.</p></div></a>
+      <a class="card" href="#"><div class="media"><span class="tag">Sleep</span></div><div class="card-body"><div class="kicker"><span class="tagpill">Sleep &amp; Recovery</span><span class="meta">Jul 14 · 7 min</span></div><h3>Mitochondrial signalling and why recovery matters</h3><p>How energy metabolism ties into recovery, and the interventions with measured effects.</p></div></a>
+    </div>
+    <p class="fine" style="margin-top:26px; text-align:center">Sample topics shown. Live articles are deep-sourced and dated before publishing — no factual claim goes out uncited.</p>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section>
+  <div class="container">
+    <div class="newsletter-band">
+      <span class="eyebrow" style="color:var(--blue-hi); display:inline-flex; margin-bottom:12px">The weekly brief</span>
+      <h2>Research worth reading, once a week.</h2>
+      <p>The COA Literacy Guide free when you join, then a sourced brief every week.</p>
+      <form class="nl-form" onsubmit="event.preventDefault();this.innerHTML='<p style=\'margin:0;color:#8FE0AB\'>You\'re in — check your inbox.</p>';">
+        <input type="email" placeholder="Email address" aria-label="Email address" required>
+        <button type="submit" class="btn btn-gold">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:16px">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" stroke="#4F9C7C" stroke-width="1.1"/><path d="M12 6c0 4 8 4 8 10s-8 6-8 10" stroke="#4F9C7C" stroke-width="1.4"/><path d="M20 6c0 4-8 4-8 10s8 6 8 10" stroke="#AE8B4E" stroke-width="1.4"/><path d="M12.5 11h7M12 16h8M12.5 21h7" stroke="#4F9C7C" stroke-width="1"/></svg>
+          <b>Biohacker Standard</b>
+        </a>
+        <p style="color:#9AA2AC; font-size:14px; max-width:34ch">Independent research and education for peptides, longevity, and human performance.</p>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="directory.html">Directory</a></li><li><a href="index.html#get-guide">Free Guide</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="#">Medical Disclaimer</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Affiliate Disclosure</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <p class="disclosure">Biohacker Standard is a research and education publisher. Content is for informational purposes only and is not medical advice — talk to a licensed clinician before making any health decision. We may earn a commission from vetted partners and affiliated brands, at no extra cost to you; affiliation never overrides our sourcing and testing standard. © 2026 Biohacker Standard.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.chips').forEach(function (group) {
+    group.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip'); if (!chip) return;
+      group.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('active'); });
+      chip.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

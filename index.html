@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biohacker Standard</title>
+<meta name="description" content="Biohacking, peptide & longevity research — vetted, sourced, and tested. Get the free COA Literacy Guide and the weekly research brief.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ——— home-only ——— */
+  .hero { position: relative; overflow: clip; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 54px; align-items: center; padding: 60px 0 40px; }
+  .hero h1 { margin-bottom: 20px; }
+  .hero h1 em { font-style: normal; color: var(--blue); }
+  .hero .lede { font-size: 19px; color: var(--muted); max-width: 52ch; margin-bottom: 26px; }
+  .hero-card { background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius); padding: 26px 26px 22px; box-shadow: var(--shadow); }
+  .hero-card .doc-label { display: block; margin-bottom: 6px; }
+  .hero-card .doc-title { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.01em; margin-bottom: 4px; }
+  .hero-card .doc-sub { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+  .hero-social { margin-top: 26px; }
+  .hero-social .lbl { display: block; margin-bottom: 12px; color: var(--muted); }
+
+  /* hero visual */
+  .hero-visual { position: relative; }
+  .hero-visual .media { aspect-ratio: 4 / 5; }
+  .float-card {
+    position: absolute; left: -26px; bottom: -22px; width: 260px;
+    background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius-sm);
+    padding: 18px 20px; box-shadow: var(--shadow);
+  }
+  .float-card .ico { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--verified-tint); color: var(--verified); margin-bottom: 10px; }
+  .float-card h4 { font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+  .float-card p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.5; }
+
+  .band { background: var(--surface); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+  .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; align-items: center; }
+  .who-grid .media { aspect-ratio: 5 / 4; }
+  .who h2 { margin-bottom: 18px; }
+  .who p { color: var(--ink-soft); font-size: 18px; }
+
+  @media (max-width: 860px) {
+    .hero-grid, .who-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; }
+    .float-card { left: auto; right: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ——————————————————— NAV ——————————————————— -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Biohacker Standard home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" stroke="#1D5A43" stroke-width="1.1"/>
+        <path d="M12 6c0 4 8 4 8 10s-8 6-8 10" stroke="#1D5A43" stroke-width="1.4"/>
+        <path d="M20 6c0 4-8 4-8 10s8 6 8 10" stroke="#AE8B4E" stroke-width="1.4"/>
+        <path d="M12.5 11h7M12 16h8M12.5 21h7" stroke="#1D5A43" stroke-width="1"/>
+      </svg>
+      <b>Biohacker Standard</b>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="directory.html">Directory</a>
+    </div>
+    <a href="#get-guide" class="btn btn-blue nav-cta">Get the Guide</a>
+  </div>
+</nav>
+
+<!-- ——————————————————— HERO / LEAD CAPTURE ——————————————————— -->
+<header class="hero">
+  <div class="container hero-grid" id="get-guide">
+    <div class="hero-copy">
+      <span class="eyebrow">🧬 Free Literature Review · Peptide &amp; Longevity Research</span>
+      <h1>Biohacking, vetted &amp; <em>sourced.</em></h1>
+      <p class="lede">Every breakdown traces back to a published trial — cellular senescence, mitochondrial signalling, telomere length — never marketing copy. Start with the free guide researchers use to read a lab report before they trust it.</p>
+
+      <div class="hero-card">
+        <span class="mono doc-label" style="color:var(--dim)">Free Literature Review PDF</span>
+        <div class="doc-title">The COA Literacy Guide</div>
+        <p class="doc-sub">12 pages · how to read a Certificate of Analysis, the 90-second verification check, red flags, and 5 questions to ask any vendor.</p>
+        <form class="lead-form" id="optin">
+          <div class="field-row">
+            <input type="text" name="first_name" placeholder="First name" aria-label="First name" required>
+            <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+          </div>
+          <button type="submit" class="btn btn-blue btn-lg">Get Instant Access →</button>
+        </form>
+        <div class="form-success" id="optin-success">You're in — check your inbox for the COA Literacy Guide. Don't see it? Check spam and mark us safe.</div>
+        <p class="fine" style="margin-top:12px">No spam. One confirmation email, then the weekly research brief if you want it. Unsubscribe anytime.</p>
+      </div>
+
+      <div class="hero-social">
+        <span class="mono lbl">Follow the research</span>
+        <div class="socials">
+          <a class="social" href="#" aria-label="Follow on Instagram">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#E1306C" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="#E1306C" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="#E1306C"/></svg>
+            Instagram <span class="arrow">→</span>
+          </a>
+          <a class="social" href="#" aria-label="Join our Discord">
+            <svg viewBox="0 0 24 24" fill="#5865F2"><path d="M20 5.3A17 17 0 0 0 15.8 4l-.2.4a12.7 12.7 0 0 1 3.7 1.9 12 12 0 0 0-10.6 0A12.7 12.7 0 0 1 12.4 4.4L12.2 4A17 17 0 0 0 8 5.3C5.4 9.2 4.7 13 5 16.7a17 17 0 0 0 5.2 2.6l.6-1a11 11 0 0 1-1.8-.9l.4-.3a12 12 0 0 0 10.2 0l.4.3c-.6.4-1.2.6-1.8.9l.6 1a17 17 0 0 0 5.2-2.6c.4-4.3-.7-8-3-11.4ZM9.7 14.5c-.8 0-1.5-.8-1.5-1.7s.7-1.7 1.5-1.7 1.5.8 1.5 1.7-.7 1.7-1.5 1.7Zm4.6 0c-.8 0-1.5-.8-1.5-1.7s.7-1.7 1.5-1.7 1.5.8 1.5 1.7-.7 1.7-1.5 1.7Z"/></svg>
+            Discord <span class="arrow">→</span>
+          </a>
+          <a class="social" href="#" aria-label="Follow on X">
+            <svg viewBox="0 0 24 24" fill="#0D1014"><path d="M17.5 3h3l-6.6 7.5L21.8 21h-6l-4.7-6.1L5.7 21H2.6l7-8L2.5 3h6.1l4.3 5.6L17.5 3Zm-1 16h1.7L7.6 4.8H5.8L16.5 19Z"/></svg>
+            X <span class="arrow">→</span>
+          </a>
+          <a class="social" href="#" aria-label="Follow on TikTok">
+            <svg viewBox="0 0 24 24" fill="#0D1014"><path d="M16.5 3c.3 2.1 1.5 3.6 3.5 3.8v2.5c-1.2.1-2.4-.3-3.5-1v5.9a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v2.6a3 3 0 1 0 2.1 2.9V3h2.6Z"/></svg>
+            TikTok <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="media" role="img" aria-label="Molecular research motif">
+        <div class="glyph">
+          <svg viewBox="0 0 200 200" fill="none">
+            <g stroke="#6FBE97" stroke-width="1.4" opacity="0.9">
+              <path d="M70 20c0 30 60 30 60 60s-60 30-60 60"/>
+              <path d="M130 20c0 30-60 30-60 60s60 30 60 60"/>
+              <path d="M74 45h52M70 80h60M74 115h52M78 140h44"/>
+            </g>
+            <circle cx="70" cy="20" r="4" fill="#4F9C7C"/><circle cx="130" cy="20" r="4" fill="#AE8B4E"/>
+            <circle cx="100" cy="80" r="5" fill="#fff"/>
+            <circle cx="70" cy="140" r="4" fill="#AE8B4E"/><circle cx="130" cy="140" r="4" fill="#4F9C7C"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- stat bar -->
+  <div class="container" style="padding-bottom:56px">
+    <div class="stats">
+      <div class="stat"><span class="num">100%</span><span class="lbl">Claims cited to a journal</span></div>
+      <div class="stat"><span class="num">COA</span><span class="lbl">Every vetted brand tested</span></div>
+      <div class="stat"><span class="num">12</span><span class="lbl">Pages. Zero fluff.</span></div>
+      <div class="stat"><span class="num">Weekly</span><span class="lbl">Research brief</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ——————————————————— WHO WE ARE ——————————————————— -->
+<section class="band">
+  <div class="container who-grid who">
+    <div>
+      <span class="eyebrow" style="margin-bottom:16px;display:inline-flex">Who we are</span>
+      <h2>The standard the industry skipped.</h2>
+      <p>Biohacker Standard is an independent research desk for peptides, longevity, and human performance. We read the trials, test what's sold, and translate it into something you can act on — without the hype cycle that surrounds this space.</p>
+      <p>When we vet a brand or point you to a compound, it has cleared our bar first: published evidence, a real Certificate of Analysis, and a supplier willing to show its work.</p>
+      <div class="socials" style="margin-top:8px">
+        <a class="social" href="#"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#E1306C" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="#E1306C" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="#E1306C"/></svg> Instagram <span class="arrow">→</span></a>
+        <a class="social" href="#"><svg viewBox="0 0 24 24" fill="#5865F2"><path d="M20 5.3A17 17 0 0 0 15.8 4l-.2.4a12.7 12.7 0 0 1 3.7 1.9 12 12 0 0 0-10.6 0A12.7 12.7 0 0 1 12.4 4.4L12.2 4A17 17 0 0 0 8 5.3C5.4 9.2 4.7 13 5 16.7a17 17 0 0 0 5.2 2.6l.6-1a11 11 0 0 1-1.8-.9l.4-.3a12 12 0 0 0 10.2 0l.4.3c-.6.4-1.2.6-1.8.9l.6 1a17 17 0 0 0 5.2-2.6c.4-4.3-.7-8-3-11.4Z"/></svg> Discord <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="media" role="img" aria-label="Community and research imagery placeholder">
+      <div class="glyph"><svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="70" stroke="#6FBE97" stroke-width="1.2" opacity="0.6"/><circle cx="100" cy="100" r="46" stroke="#AE8B4E" stroke-width="1.2" opacity="0.6"/><circle cx="100" cy="100" r="10" fill="#fff"/><path d="M100 30v22M100 148v22M30 100h22M148 100h22" stroke="#6FBE97" stroke-width="1.4"/></svg></div>
+      <span class="tag">Image slot · your photography</span>
+    </div>
+  </div>
+</section>
+
+<!-- ——————————————————— FROM THE BLOG ——————————————————— -->
+<section>
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Knowledge hub</span>
+      <h2>From the research desk</h2>
+      <p>Long-form breakdowns, every claim cited. Sample topics shown — live posts are sourced and dated before publishing.</p>
+    </div>
+    <div class="grid g3">
+      <a class="card" href="blog.html">
+        <div class="media"><span class="tag">Longevity</span></div>
+        <div class="card-body">
+          <div class="kicker"><span class="tagpill">Longevity</span><span class="meta">8 min</span></div>
+          <h3>What a COA actually proves — and what it doesn't</h3>
+          <p>Identity, purity, and contaminant panels in plain terms, and the gaps a certificate can quietly leave open.</p>
+        </div>
+      </a>
+      <a class="card" href="blog.html">
+        <div class="media"><span class="tag">Peptides</span></div>
+        <div class="card-body">
+          <div class="kicker"><span class="tagpill">Peptides</span><span class="meta">11 min</span></div>
+          <h3>Reading a peptide study without fooling yourself</h3>
+          <p>Sample size, endpoints, and the difference between a mechanism and a measured outcome.</p>
+        </div>
+      </a>
+      <a class="card" href="blog.html">
+        <div class="media"><span class="tag">Vendors</span></div>
+        <div class="card-body">
+          <div class="kicker"><span class="tagpill">Vendors</span><span class="meta">6 min</span></div>
+          <h3>The 5 questions every supplier should answer</h3>
+          <p>What separates a lab that shows its work from one hoping you won't ask.</p>
+        </div>
+      </a>
+    </div>
+    <div style="margin-top:30px"><a href="blog.html" class="btn btn-gold">Browse all articles →</a></div>
+  </div>
+</section>
+
+<!-- ——————————————————— FINAL CTA ——————————————————— -->
+<section class="band">
+  <div class="container" style="text-align:center; max-width:680px;">
+    <span class="eyebrow" style="display:inline-flex; margin-bottom:14px">Join the standard</span>
+    <h2 style="margin-bottom:16px">Get the guide. Then the brief.</h2>
+    <p style="color:var(--muted); font-size:18px; margin-bottom:26px">One free PDF, one confirmation email, and a weekly research brief you can actually trust.</p>
+    <a href="#get-guide" class="btn btn-gold btn-lg">Get the COA Literacy Guide →</a>
+  </div>
+</section>
+
+<!-- ——————————————————— FOOTER ——————————————————— -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:16px">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="15" stroke="#4F9C7C" stroke-width="1.1"/>
+            <path d="M12 6c0 4 8 4 8 10s-8 6-8 10" stroke="#4F9C7C" stroke-width="1.4"/>
+            <path d="M20 6c0 4-8 4-8 10s8 6 8 10" stroke="#AE8B4E" stroke-width="1.4"/>
+            <path d="M12.5 11h7M12 16h8M12.5 21h7" stroke="#4F9C7C" stroke-width="1"/>
+          </svg>
+          <b>Biohacker Standard</b>
+        </a>
+        <p style="color:#9AA2AC; font-size:14px; max-width:34ch">Independent research and education for peptides, longevity, and human performance.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/></svg></a>
+          <a href="#" aria-label="Discord"><svg viewBox="0 0 24 24" fill="#fff"><path d="M20 5.3A17 17 0 0 0 15.8 4l-.2.4a12.7 12.7 0 0 1 3.7 1.9 12 12 0 0 0-10.6 0A12.7 12.7 0 0 1 12.4 4.4L12.2 4A17 17 0 0 0 8 5.3C5.4 9.2 4.7 13 5 16.7a17 17 0 0 0 5.2 2.6l.6-1a11 11 0 0 1-1.8-.9l.4-.3a12 12 0 0 0 10.2 0l.4.3c-.6.4-1.2.6-1.8.9l.6 1a17 17 0 0 0 5.2-2.6c.4-4.3-.7-8-3-11.4Z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.5 3h3l-6.6 7.5L21.8 21h-6l-4.7-6.1L5.7 21H2.6l7-8L2.5 3h6.1l4.3 5.6L17.5 3Z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.5 3.6 3.5 3.8v2.5c-1.2.1-2.4-.3-3.5-1v5.9a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v2.6a3 3 0 1 0 2.1 2.9V3h2.6Z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="#get-guide">Free Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Medical Disclaimer</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Affiliate Disclosure</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="disclosure">Biohacker Standard is a research and education publisher. Content is for informational purposes only and is not medical advice — talk to a licensed clinician before making any health decision. We may earn a commission from vetted partners and affiliated brands, at no extra cost to you; affiliation never overrides our sourcing and testing standard. © 2026 Biohacker Standard.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('optin');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      btn.textContent = 'Sending…';
+      // TODO: wire to FluentCRM REST endpoint /wp-json/fluent-crm/v2/public/forms/{ID}/submit
+      setTimeout(function () {
+        form.style.display = 'none';
+        document.getElementById('optin-success').style.display = 'block';
+      }, 500);
+    });
+  })();
+</script>
+</body>
+</html>

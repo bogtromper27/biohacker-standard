@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Directory — Biohacker Standard</title>
+<meta name="description" content="A vetted directory of biohacking brands, labs, and experts — each one held to the Biohacker Standard: published evidence and a real Certificate of Analysis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .search-wrap { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 8px 0 24px; }
+  .search { position: relative; flex: 1; min-width: 260px; }
+  .search input { width: 100%; padding: 15px 20px 15px 48px; border-radius: var(--radius-pill); border: 1px solid var(--hair); background: var(--surface); font-family: inherit; font-size: 15px; color: var(--ink); }
+  .search input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-tint); }
+  .search svg { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--dim); }
+
+  .dir-card { position: relative; }
+  .dir-card .logo { width: 100%; aspect-ratio: 16/9; border-radius: 0; display: grid; place-items: center; }
+  .dir-card .logo .mark { font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 30px; color: #fff; letter-spacing: -0.02em; }
+  .dir-card .verified-badge { position: absolute; top: 14px; right: 14px; z-index: 3; }
+  .dir-card .loc { display: inline-flex; align-items: center; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--muted); text-transform: uppercase; }
+  .rating { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 14px; color: var(--ink); }
+  .rating svg { width: 15px; height: 15px; color: var(--gold); }
+  .disc-strip { background: var(--gold-tint); border: 1px solid rgba(192,145,47,0.28); border-radius: var(--radius-sm); padding: 14px 20px; margin-top: 28px; }
+  .disc-strip p { margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; line-height: 1.6; color: var(--gold-deep); text-transform: none; letter-spacing: 0.01em; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Biohacker Standard home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" stroke="#1D5A43" stroke-width="1.1"/>
+        <path d="M12 6c0 4 8 4 8 10s-8 6-8 10" stroke="#1D5A43" stroke-width="1.4"/>
+        <path d="M20 6c0 4-8 4-8 10s8 6 8 10" stroke="#AE8B4E" stroke-width="1.4"/>
+        <path d="M12.5 11h7M12 16h8M12.5 21h7" stroke="#1D5A43" stroke-width="1"/>
+      </svg>
+      <b>Biohacker Standard</b>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="directory.html" class="active">Directory</a>
+    </div>
+    <a href="index.html#get-guide" class="btn btn-blue nav-cta">Get the Guide</a>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="container">
+    <span class="eyebrow">Vetted &amp; verified</span>
+    <h1 style="margin-top:14px">The Directory</h1>
+    <p>Brands, labs, and experts that clear the Biohacker Standard: published evidence, a real Certificate of Analysis, and a willingness to show their work.</p>
+  </div>
+</div>
+
+<section style="padding-top:22px">
+  <div class="container">
+    <div class="search-wrap">
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5" stroke-linecap="round"/></svg>
+        <input type="search" placeholder="Search brands, labs & experts…" aria-label="Search the directory">
+      </div>
+      <a href="#" class="btn btn-gold">Get listed →</a>
+    </div>
+
+    <div class="chips" style="margin-bottom:30px">
+      <button class="chip active">All</button>
+      <button class="chip">Peptides</button>
+      <button class="chip">Supplements</button>
+      <button class="chip">Testing Labs</button>
+      <button class="chip">Devices</button>
+      <button class="chip">Clinics</button>
+      <button class="chip">Experts</button>
+    </div>
+
+    <div class="grid g3">
+      <!-- SAMPLE LISTINGS — replace with real vetted brands -->
+      <article class="card dir-card">
+        <span class="badge verified verified-badge">✓ Verified</span>
+        <div class="media logo"><span class="mark">A</span></div>
+        <div class="card-body">
+          <div class="kicker"><span class="tagpill">Testing Lab</span><span class="rating"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.8 5.7 20.6l1.6-6.9L2 9.1l7-.6L12 2z"/></svg> Vetted</span></div>
+          <h3>Sample Analytics Lab</h3>
+          <span class="loc">📍 Placeholder listing</span>
+          <p>Third-party mass-spec identity and purity testing. Publishes full COAs with batch matching.</p>
+          <div class="card-foot"><a href="#" class="btn btn-ghost">View profile →</a></div>
+        </div>
+      </article>
+
+      <article class="card dir-card">
+        <span class="badge verified verified-badge">✓ Verified</span>
+        <div class="media logo"><span class="mark">B</span></div>
+        <div class="card-body">
+          <div class="kicker"><span class="tagpill">Peptides</span><span class="rating"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.8 5.7 20.6l1.6-6.9L2 9.1l7-.6L12 2z"/></svg> Vetted</span></div>
+          <h3>Sample Peptide Supplier</h3>
+          <span class="loc">📍 Placeholder listing</span>
+          <p>Research-grade compounds with per-batch certificates and transparent sourcing documentation.</p>
+          <div class="card-foot"><a href="#" class="btn btn-ghost">View profile →</a></div>
+        </div>
+      </article>
+
+      <article class="card dir-card">
+        <span class="badge verified verified-badge">✓ Verified</span>
+        <div class="media logo"><span class="mark">C</span></div>
+        <div class="card-body">
+          <div class="kicker"><span class="tagpill">Supplements</span><span class="rating"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.8 5.7 20.6l1.6-6.9L2 9.1l7-.6L12 2z"/></svg> Vetted</span></div>
+          <h3>Sample Supplement Brand</h3>
+          <span class="loc">📍 Placeholder listing</span>
+          <p>Formulations with named, dosed ingredients and independent testing on every production run.</p>
+          <div class="card-foot"><a href="#" class="btn btn-ghost">View profile →</a></div>
+        </div>
+      </article>
+
+      <article class="card dir-card">
+        <span class="badge verified verified-badge">✓ Verified</span>
+        <div class="media logo"><span class="mark">D</span></div>
+        <div class="card-body">
+          <div class="kicker"><span class="tagpill">Devices</span><span class="rating"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.8 5.7 20.6l1.6-6.9L2 9.1l7-.6L12 2z"/></svg> Vetted</span></div>
+          <h3>Sample Wearable Co.</h3>
+          <span class="loc">📍 Placeholder listing</span>
+          <p>Tracking hardware with validation studies behind its core metrics and open data export.</p>
+          <div class="card-foot"><a href="#" class="btn btn-ghost">View profile →</a></div>
+        </div>
+      </article>
+
+      <article class="card dir-card">
+        <span class="badge verified verified-badge">✓ Verified</span>
+        <div class="media logo"><span class="mark">E</span></div>
+        <div class="card-body">
+          <div class="kicker"><span class="tagpill">Clinic</span><span class="rating"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.8 5.7 20.6l1.6-6.9L2 9.1l7-.6L12 2z"/></svg> Vetted</span></div>
+          <h3>Sample Longevity Clinic</h3>
+          <span class="loc">📍 Placeholder listing</span>
+          <p>Functional-medicine practice with published protocols and licensed clinical oversight.</p>
+          <div class="card-foot"><a href="#" class="btn btn-ghost">View profile →</a></div>
+        </div>
+      </article>
+
+      <article class="card dir-card">
+        <span class="badge verified verified-badge">✓ Verified</span>
+        <div class="media logo"><span class="mark">F</span></div>
+        <div class="card-body">
+          <div class="kicker"><span class="tagpill">Expert</span><span class="rating"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.8 5.7 20.6l1.6-6.9L2 9.1l7-.6L12 2z"/></svg> Vetted</span></div>
+          <h3>Sample Expert Profile</h3>
+          <span class="loc">📍 Placeholder listing</span>
+          <p>Credentialed researcher or practitioner with a public, verifiable body of work.</p>
+          <div class="card-foot"><a href="#" class="btn btn-ghost">View profile →</a></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="disc-strip">
+      <p>Listings shown are placeholders for layout. Real entries are added only after they clear the Biohacker Standard vetting process. Affiliate disclosure: we may earn a commission from some listed brands, at no extra cost to you — affiliation never buys a listing or overrides vetting.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:16px">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" stroke="#4F9C7C" stroke-width="1.1"/><path d="M12 6c0 4 8 4 8 10s-8 6-8 10" stroke="#4F9C7C" stroke-width="1.4"/><path d="M20 6c0 4-8 4-8 10s8 6 8 10" stroke="#AE8B4E" stroke-width="1.4"/><path d="M12.5 11h7M12 16h8M12.5 21h7" stroke="#4F9C7C" stroke-width="1"/></svg>
+          <b>Biohacker Standard</b>
+        </a>
+        <p style="color:#9AA2AC; font-size:14px; max-width:34ch">Independent research and education for peptides, longevity, and human performance.</p>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="directory.html">Directory</a></li><li><a href="index.html#get-guide">Free Guide</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="#">Medical Disclaimer</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Affiliate Disclosure</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <p class="disclosure">Biohacker Standard is a research and education publisher. Content is for informational purposes only and is not medical advice — talk to a licensed clinician before making any health decision. We may earn a commission from vetted partners and affiliated brands, at no extra cost to you; affiliation never overrides our sourcing and testing standard. © 2026 Biohacker Standard.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.chips').forEach(function (group) {
+    group.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip'); if (!chip) return;
+      group.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('active'); });
+      chip.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

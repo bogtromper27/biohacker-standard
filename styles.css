@@ -1,0 +1,271 @@
+/* ============================================================
+   BIOHACKER STANDARD — shared design system
+   Light, clinical-modern. Medical-blue primary + gold secondary.
+   Display: Archivo (heavy grotesque) · Body: Hanken Grotesk · Data: IBM Plex Mono
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  /* ——— STANDARD BEARER colorway ———
+     graphite ink · warm lab-paper · deep pine primary · restrained brass.
+     Accent tokens keep their blue/gold variable names for compatibility:
+     --blue now = PINE (primary), --gold now = BRASS (secondary). */
+  --paper:      #F3F2EC;   /* warm lab-paper */
+  --surface:    #FBFAF8;
+  --surface-2:  #ECEAE0;
+  --ink:        #15191B;   /* graphite */
+  --ink-soft:   #454B47;
+  --muted:      #656B63;
+  --dim:        #8C9089;
+  --hair:       rgba(21,25,27,0.11);
+  --hair-soft:  rgba(21,25,27,0.055);
+
+  /* accents */
+  --blue:       #1D5A43;   /* PINE — primary */
+  --blue-deep:  #164434;
+  --blue-hi:    #3E8E68;
+  --blue-tint:  rgba(29,90,67,0.09);
+  --gold:       #AE8B4E;   /* BRASS — secondary */
+  --gold-deep:  #86672F;
+  --gold-tint:  rgba(174,139,78,0.12);
+  --cyan:       #3E8E68;   /* pine signal */
+
+  /* status */
+  --verified:   #2E7B57;
+  --verified-tint: rgba(46,123,87,0.13);
+
+  --radius:     22px;
+  --radius-sm:  14px;
+  --radius-pill:999px;
+  --shadow-sm:  0 2px 10px -4px rgba(13,16,20,0.14);
+  --shadow:     0 26px 60px -30px rgba(13,16,20,0.28);
+  --shadow-blue:0 20px 44px -20px rgba(29,90,67,0.42);
+
+  --maxw: 1160px;
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--blue-deep); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+h1, h2, h3, h4 {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(40px, 6.2vw, 76px); }
+h2 { font-size: clamp(28px, 4vw, 44px); }
+h3 { font-size: 21px; letter-spacing: -0.01em; }
+
+p { margin: 0 0 18px; }
+strong { font-weight: 700; color: var(--ink); }
+
+.mono {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 26px; }
+.measure { max-width: 60ch; }
+
+/* ————————————————————————— NAV ————————————————————————— */
+.nav {
+  position: sticky; top: 0; z-index: 60;
+  background: color-mix(in srgb, var(--paper) 82%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--hair-soft);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 20px; }
+.brand { display: inline-flex; align-items: center; gap: 11px; }
+.brand svg { width: 26px; height: 26px; flex: none; }
+.brand b { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 15px; letter-spacing: 0.02em; color: var(--ink); text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-size: 15px; font-weight: 600; color: var(--ink-soft); }
+.nav-links a:hover { color: var(--blue); text-decoration: none; }
+.nav-links a.active { color: var(--ink); }
+.nav-links a.active::after { content: ''; display: block; height: 2px; background: var(--blue); border-radius: 2px; margin-top: 3px; }
+.nav-cta { display: inline-flex; }
+
+/* ————————————————————————— BUTTONS ————————————————————————— */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  font-family: 'Hanken Grotesk', sans-serif; font-weight: 700; font-size: 15px;
+  padding: 13px 24px; border-radius: var(--radius-pill); border: 1px solid transparent;
+  cursor: pointer; transition: transform .15s, box-shadow .25s, background .2s, color .2s, border-color .2s;
+  white-space: nowrap; text-decoration: none;
+}
+.btn:hover { text-decoration: none; }
+.btn:active { transform: translateY(1px); }
+.btn-blue { background: var(--blue); color: #fff; box-shadow: var(--shadow-blue); }
+.btn-blue:hover { background: var(--blue-deep); color: #fff; }
+.btn-gold { background: var(--gold); color: #201607; box-shadow: 0 16px 34px -18px rgba(174,139,78,0.6); }
+.btn-gold:hover { background: var(--gold-deep); color: #F3F2EC; }
+.btn-ghost { background: var(--surface); color: var(--ink); border-color: var(--hair); box-shadow: var(--shadow-sm); }
+.btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+.btn-lg { padding: 16px 30px; font-size: 16px; }
+
+:where(a, button, input, .chip):focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 8px; }
+
+/* ————————————————————————— EYEBROW / BADGE ————————————————————————— */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--blue); font-weight: 500;
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--blue-deep); background: var(--blue-tint); border: 1px solid rgba(22,87,224,0.22);
+  padding: 8px 16px; border-radius: var(--radius-pill);
+}
+.badge.verified { color: var(--verified); background: var(--verified-tint); border-color: rgba(30,135,75,0.28); }
+
+/* ————————————————————————— MEDIA (graphic slots, swap for photos) ————————————————————————— */
+.media {
+  position: relative; overflow: hidden; border-radius: var(--radius);
+  background:
+    radial-gradient(120% 120% at 15% 10%, rgba(95,190,147,0.26), rgba(95,190,147,0) 55%),
+    radial-gradient(120% 120% at 90% 90%, rgba(196,162,94,0.24), rgba(196,162,94,0) 55%),
+    linear-gradient(150deg, #123024, #0d1c15 60%, #10241a);
+}
+.media::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1.4px);
+  background-size: 22px 22px; opacity: 0.5;
+  mask-image: radial-gradient(120% 120% at 50% 40%, #000 30%, transparent 78%);
+}
+.media .glyph { position: absolute; inset: 0; display: grid; place-items: center; }
+.media .glyph svg { width: 44%; max-width: 220px; opacity: 0.9; }
+.media .tag {
+  position: absolute; left: 14px; bottom: 14px; z-index: 2;
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.86); background: rgba(0,0,0,0.35); backdrop-filter: blur(4px);
+  padding: 5px 11px; border-radius: var(--radius-pill); border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* ————————————————————————— CARDS ————————————————————————— */
+.card {
+  background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius);
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: transform .2s, box-shadow .25s, border-color .2s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(22,87,224,0.25); }
+.card .media { border-radius: 0; aspect-ratio: 16 / 10; }
+.card-body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.card .kicker { display: flex; align-items: center; gap: 10px; }
+.tagpill { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-deep); background: var(--blue-tint); padding: 4px 10px; border-radius: var(--radius-pill); font-weight: 600; }
+.card .meta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--dim); text-transform: uppercase; }
+.card h3 { color: var(--ink); }
+.card p { color: var(--ink-soft); font-size: 15px; margin: 0; }
+.card .card-foot { margin-top: auto; padding-top: 6px; display: flex; align-items: center; justify-content: space-between; }
+
+.grid { display: grid; gap: 22px; }
+.g3 { grid-template-columns: repeat(3, 1fr); }
+.g2 { grid-template-columns: repeat(2, 1fr); }
+
+/* ————————————————————————— FILTER CHIPS ————————————————————————— */
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  font-family: 'Hanken Grotesk', sans-serif; font-size: 14px; font-weight: 600;
+  color: var(--ink-soft); background: var(--surface); border: 1px solid var(--hair);
+  padding: 8px 16px; border-radius: var(--radius-pill); cursor: pointer;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.chip:hover { border-color: var(--blue); color: var(--blue); }
+.chip.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+/* ————————————————————————— SECTIONS ————————————————————————— */
+section { padding: 64px 0; }
+.sec-head { max-width: 640px; margin: 0 0 34px; display: flex; flex-direction: column; gap: 14px; }
+.sec-head.center { margin-left: auto; margin-right: auto; text-align: center; align-items: center; }
+.sec-head p { color: var(--muted); font-size: 18px; margin: 0; }
+
+/* ————————————————————————— SOCIAL BUTTONS ————————————————————————— */
+.socials { display: flex; flex-wrap: wrap; gap: 12px; }
+.social {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius-pill);
+  padding: 11px 18px 11px 14px; font-weight: 700; font-size: 14.5px; color: var(--ink);
+  box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .2s, border-color .2s;
+}
+.social:hover { text-decoration: none; transform: translateY(-2px); border-color: rgba(22,87,224,0.3); box-shadow: var(--shadow); }
+.social svg { width: 20px; height: 20px; flex: none; }
+.social .arrow { color: var(--dim); font-weight: 500; }
+
+/* ————————————————————————— FORM ————————————————————————— */
+.lead-form { display: flex; flex-direction: column; gap: 12px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.lead-form input[type=text], .lead-form input[type=email] {
+  width: 100%; background: var(--surface); border: 1px solid var(--hair); color: var(--ink);
+  padding: 15px 20px; font-family: inherit; font-size: 15px; border-radius: var(--radius-pill);
+  outline: none; transition: border-color .2s, box-shadow .2s;
+}
+.lead-form input::placeholder { color: var(--dim); }
+.lead-form input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-tint); }
+.fine { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.02em; color: var(--dim); line-height: 1.6; text-transform: none; }
+.form-success {
+  display: none; padding: 18px 22px; border-radius: var(--radius-sm); text-align: center;
+  background: var(--verified-tint); border: 1px solid rgba(30,135,75,0.3); color: var(--verified);
+  font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.55; text-transform: none;
+}
+
+/* ————————————————————————— STAT BAR ————————————————————————— */
+.stats { display: flex; flex-wrap: wrap; gap: 12px; }
+.stat { display: inline-flex; align-items: baseline; gap: 10px; padding: 12px 20px; border: 1px solid var(--hair); border-radius: var(--radius-pill); background: var(--surface); }
+.stat .num { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; color: var(--gold-deep); letter-spacing: -0.02em; }
+.stat .lbl { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+
+/* ————————————————————————— FOOTER ————————————————————————— */
+.footer { background: var(--ink); color: #C7CDD6; padding: 66px 0 40px; margin-top: 40px; }
+.footer a { color: #C7CDD6; }
+.footer a:hover { color: #fff; }
+.footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+.footer .brand b { color: #fff; }
+.footer h5 { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #7E8794; margin: 0 0 16px; font-weight: 500; }
+.footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+.footer .foot-social { display: flex; gap: 12px; margin-top: 18px; }
+.footer .foot-social a { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.16); border-radius: 50%; }
+.footer .foot-social a:hover { background: var(--blue); border-color: var(--blue); }
+.footer .foot-social svg { width: 17px; height: 17px; }
+.footer .disclosure { padding-top: 26px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.75; color: #6C7581; max-width: 78ch; text-transform: none; letter-spacing: 0.01em; }
+
+/* ————————————————————————— PAGE HEADER (interior) ————————————————————————— */
+.page-head { padding: 60px 0 20px; }
+.page-head h1 { font-size: clamp(38px, 5.4vw, 62px); }
+.page-head p { color: var(--muted); font-size: 19px; max-width: 60ch; margin-top: 16px; }
+
+/* ————————————————————————— RESPONSIVE ————————————————————————— */
+@media (max-width: 900px) {
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .g3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .nav-links { display: none; }
+  .field-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .g3, .g2 { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 30px; }
+  section { padding: 48px 0; }
+}
