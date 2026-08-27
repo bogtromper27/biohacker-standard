@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What a COA Actually Proves — Biohacker Standard</title>
+<meta name="description" content="How to read a Certificate of Analysis properly — identity, purity, and contaminant panels — and the gaps a certificate can quietly leave open.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ——— article layout ——— */
+  .article { max-width: 760px; margin: 0 auto; padding: 0 26px; }
+  .backlink { display: inline-flex; align-items: center; gap: 7px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 40px 0 24px; }
+  .backlink:hover { color: var(--blue); text-decoration: none; }
+
+  .article-head h1 { font-size: clamp(34px, 5vw, 54px); line-height: 1.02; margin: 16px 0 20px; }
+  .article-head .deck { font-size: 21px; line-height: 1.5; color: var(--ink-soft); margin: 0 0 28px; }
+  .byline { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 20px 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+  .byline .who { display: flex; align-items: center; gap: 11px; }
+  .byline .avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--blue); display: grid; place-items: center; color: #fff; font-family: 'Archivo'; font-weight: 800; font-size: 15px; flex: none; }
+  .byline .who b { font-family: 'Archivo'; font-weight: 800; font-size: 14px; display: block; }
+  .byline .who span { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+  .byline .meta { margin-left: auto; display: flex; align-items: center; gap: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+  .sources-chip { display: inline-flex; align-items: center; gap: 7px; color: var(--blue-deep); background: var(--blue-tint); border: 1px solid rgba(29,90,67,0.22); padding: 5px 12px; border-radius: var(--radius-pill); }
+
+  .article-hero { margin: 30px 0 8px; }
+  .article-hero .media { aspect-ratio: 16 / 8; }
+
+  /* ——— prose ——— */
+  .prose { font-size: 18.5px; line-height: 1.72; color: var(--ink-soft); }
+  .prose > p:first-of-type { font-size: 20px; color: var(--ink); }
+  .prose p { margin: 0 0 24px; }
+  .prose h2 { font-size: 28px; color: var(--ink); margin: 46px 0 14px; letter-spacing: -0.01em; }
+  .prose h3 { font-size: 20px; color: var(--ink); margin: 32px 0 10px; }
+  .prose strong { color: var(--ink); }
+  .prose a:not(.cite) { color: var(--blue-deep); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+  .prose ul, .prose ol { margin: 0 0 24px; padding-left: 26px; }
+  .prose li { margin-bottom: 10px; }
+
+  /* citation marker — the signature element */
+  .cite { font-size: 0.62em; vertical-align: super; line-height: 0; margin-left: 1px; }
+  .cite a { display: inline-block; min-width: 17px; text-align: center; padding: 1px 5px; border-radius: 6px;
+    background: var(--blue-tint); color: var(--blue-deep); font-family: 'IBM Plex Mono', monospace; font-weight: 600;
+    text-decoration: none; transition: background .15s, color .15s; }
+  .cite a:hover { background: var(--blue); color: #fff; }
+
+  blockquote { margin: 34px 0; padding: 6px 0 6px 26px; border-left: 3px solid var(--gold); }
+  blockquote p { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 25px; line-height: 1.4; color: var(--ink); margin: 0; }
+
+  .callout { background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius); padding: 26px 28px; margin: 34px 0; }
+  .callout .lbl { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 14px; display: block; }
+  .callout ul { margin: 0; padding-left: 20px; }
+  .callout li { color: var(--ink-soft); margin-bottom: 8px; }
+  .callout li::marker { color: var(--gold); }
+
+  /* numbered process — order carries meaning here */
+  .steps { list-style: none; margin: 24px 0 30px; padding: 0; counter-reset: step; display: flex; flex-direction: column; gap: 14px; }
+  .steps li { position: relative; padding-left: 52px; counter-increment: step; }
+  .steps li::before { content: counter(step, decimal-leading-zero); position: absolute; left: 0; top: -2px;
+    font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 13px; color: var(--blue); background: var(--blue-tint);
+    width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px; }
+  .steps li b { color: var(--ink); }
+
+  /* ——— references block ——— */
+  .refs { margin: 56px 0 10px; scroll-margin-top: 80px; }
+  .refs h2 { font-size: 22px; color: var(--ink); margin-bottom: 8px; }
+  .refs .editnote { font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.6; color: var(--muted); text-transform: none; letter-spacing: 0.01em;
+    background: var(--gold-tint); border: 1px solid rgba(174,139,78,0.28); border-radius: var(--radius-sm); padding: 12px 16px; margin: 14px 0 22px; }
+  .refs ol { list-style: none; counter-reset: ref; margin: 0; padding: 0; }
+  .refs li { counter-increment: ref; position: relative; padding: 16px 0 16px 44px; border-top: 1px solid var(--hair-soft); font-size: 15px; color: var(--ink-soft); scroll-margin-top: 80px; }
+  .refs li::before { content: counter(ref); position: absolute; left: 0; top: 16px; font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 12px; color: var(--blue-deep); background: var(--blue-tint); width: 30px; height: 30px; display: grid; place-items: center; border-radius: 8px; }
+  .refs li:target { background: var(--blue-tint); border-radius: 10px; }
+  .refs .src-title { color: var(--ink); font-weight: 600; }
+  .refs .src-pub { font-style: italic; }
+  .refs .src-link { display: inline-flex; align-items: center; gap: 5px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--blue-deep); margin-left: 8px; }
+  .refs .backref { color: var(--muted); text-decoration: none; margin-left: 6px; }
+  .refs .backref:hover { color: var(--blue); }
+
+  /* author + disclosure */
+  .author-card { display: flex; gap: 16px; align-items: flex-start; background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius); padding: 24px 26px; margin: 30px 0; }
+  .author-card .avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--blue); display: grid; place-items: center; color: #fff; font-family: 'Archivo'; font-weight: 800; font-size: 18px; flex: none; }
+  .author-card b { font-family: 'Archivo'; font-size: 16px; }
+  .author-card p { font-size: 14px; color: var(--muted); margin: 6px 0 0; }
+  .disclosure-note { font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.7; color: var(--muted); text-transform: none; letter-spacing: 0.01em; border-top: 1px solid var(--hair); padding-top: 22px; margin-top: 10px; }
+
+  .related { border-top: 1px solid var(--hair); margin-top: 40px; }
+
+  @media (max-width: 560px) {
+    .byline .meta { margin-left: 0; width: 100%; }
+    .prose { font-size: 17.5px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Biohacker Standard home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" stroke="#1D5A43" stroke-width="1.1"/>
+        <path d="M12 6c0 4 8 4 8 10s-8 6-8 10" stroke="#1D5A43" stroke-width="1.4"/>
+        <path d="M20 6c0 4-8 4-8 10s8 6 8 10" stroke="#AE8B4E" stroke-width="1.4"/>
+        <path d="M12.5 11h7M12 16h8M12.5 21h7" stroke="#1D5A43" stroke-width="1"/>
+      </svg>
+      <b>Biohacker Standard</b>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="directory.html">Directory</a>
+    </div>
+    <a href="index.html#get-guide" class="btn btn-blue nav-cta">Get the Guide</a>
+  </div>
+</nav>
+
+<article>
+  <div class="article">
+    <a class="backlink" href="blog.html">← Back to the blog</a>
+    <div class="article-head">
+      <span class="tagpill">Lab Testing</span>
+      <h1>What a Certificate of Analysis actually proves — and what it doesn't</h1>
+      <p class="deck">A COA is the single most-cited proof of quality in the supplement and peptide world. Here's how to read one properly — and the gaps a certificate can quietly leave open.</p>
+      <div class="byline">
+        <div class="who">
+          <div class="avatar">BS</div>
+          <div><b>Biohacker Standard Editorial</b><span>Reviewed against lab-accreditation standards</span></div>
+        </div>
+        <div class="meta">
+          <span class="sources-chip">✓ 6 sources cited</span>
+          <span>Aug 18, 2026</span>
+          <span>8 min read</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-hero">
+    <div class="article"><div class="media" role="img" aria-label="Article hero image slot"><span class="tag">Image slot · your photography</span></div></div>
+  </div>
+
+  <div class="article">
+    <div class="prose">
+      <p>A Certificate of Analysis — a COA — is what a seller hands you to prove that what's on the label is what's in the product. In a market where anyone can print "99% pure" on a bottle, it's the closest thing to hard evidence you'll get. But a COA only means something if you can read it, and most people skim it for a single number and move on.</p>
+
+      <p>This is the guide we wish existed when we started reading lab reports. It won't make you a chemist. It will let you tell a real certificate from a reassuring-looking PDF in about ninety seconds.</p>
+
+      <h2>What a COA actually is</h2>
+      <p>A COA is a laboratory's report on <strong>one specific batch</strong> of a product. That last part matters more than anything else on the page: a certificate describes the sample the lab tested, not the bottle in your hand. If the batch numbers don't match, the document is decoration.</p>
+      <p>A complete certificate answers three questions: <strong>is it the right compound</strong> (identity), <strong>how much of it is there</strong> (purity/potency), and <strong>what else is in there</strong> (contaminants). Reputable labs run these against published methods rather than house rules.<span class="cite"><a href="#ref-1" id="cite-1">1</a></span></p>
+
+      <h2>The three panels that matter</h2>
+      <h3>1. Identity</h3>
+      <p>Identity testing confirms the substance is what it claims to be — usually by mass spectrometry or a comparison against a reference standard. Without it, purity is meaningless: you can have a 99%-pure sample of the wrong molecule.</p>
+
+      <h3>2. Purity and potency</h3>
+      <p>This is the number everyone quotes. It should state the assay method and the measured result, not just a marketing figure. A purity claim with no method listed is a claim, not a measurement.</p>
+
+      <h3>3. Contaminants</h3>
+      <p>The panel people skip and shouldn't. Depending on the product, this covers elemental impurities such as heavy metals,<span class="cite"><a href="#ref-2" id="cite-2">2</a></span><span class="cite"><a href="#ref-3" id="cite-3">3</a></span> residual solvents left over from manufacturing,<span class="cite"><a href="#ref-4" id="cite-4">4</a></span> and microbial contamination.<span class="cite"><a href="#ref-5" id="cite-5">5</a></span> These are the results that speak to safety rather than marketing.</p>
+
+      <blockquote><p>A certificate proves what a lab measured on one batch — not what's in the bottle on your shelf.</p></blockquote>
+
+      <h2>Where COAs quietly mislead</h2>
+      <p>A document can be technically real and still tell you very little. The common gaps:</p>
+      <ul>
+        <li><strong>Batch mismatch.</strong> The COA is genuine but describes a different lot than the one you received. Always match the batch number.</li>
+        <li><strong>In-house, not independent.</strong> A result from the seller's own lab isn't the same as one from a third-party facility whose competence is externally accredited.<span class="cite"><a href="#ref-1" id="cite-1b">1</a></span></li>
+        <li><strong>Cherry-picked panels.</strong> A glowing purity number with no contaminant testing at all is a selective disclosure.</li>
+        <li><strong>No method, no date.</strong> A credible certificate names its methods and is recent. Undated or method-less reports can't be verified.</li>
+        <li><strong>Good manufacturing gaps.</strong> A single COA says nothing about whether the facility follows current good manufacturing practice across production.<span class="cite"><a href="#ref-6" id="cite-6">6</a></span></li>
+      </ul>
+
+      <div class="callout">
+        <span class="lbl">Key takeaways</span>
+        <ul>
+          <li>A COA describes one batch — match the batch number first.</li>
+          <li>Look for all three panels: identity, purity, and contaminants.</li>
+          <li>Prefer third-party, accredited labs over in-house results.</li>
+          <li>No method and no date means the result can't be verified.</li>
+        </ul>
+      </div>
+
+      <h2>The 90-second check</h2>
+      <p>Run any certificate through this before you trust it. The order matters — each step gates the next.</p>
+      <ol class="steps">
+        <li><b>Match the batch.</b> Does the lot number on the COA match the product? If not, stop here.</li>
+        <li><b>Find the lab.</b> Is it a named third-party lab, and is it accredited? An in-house result is a weaker signal.</li>
+        <li><b>Check the panels.</b> Identity, purity, and contaminants should all be present — not just the flattering one.</li>
+        <li><b>Read the methods.</b> Each result should name the method used. "99% pure" with no method is marketing.</li>
+        <li><b>Check the date.</b> Recent and signed. Old or undated certificates get re-verified before you rely on them.</li>
+      </ol>
+
+      <h2>Five questions for any vendor</h2>
+      <p>If a seller can't answer these without friction, that's your answer:</p>
+      <ul>
+        <li>Can I see the COA for <em>this</em> batch, not a representative one?</li>
+        <li>Which third-party lab ran it, and are they accredited?</li>
+        <li>Does testing include a contaminant panel, or only purity?</li>
+        <li>What methods were used for identity and assay?</li>
+        <li>How often do you re-test across production runs?</li>
+      </ul>
+
+      <p>None of this requires trusting us. It requires the seller to show their work — which is the entire point of a standard.</p>
+    </div>
+
+    <!-- ——— REFERENCES: the signature block ——— -->
+    <section class="refs" id="references">
+      <h2>References</h2>
+      <p class="editnote">Sample reference set for this template. The standards named here are real and relevant to laboratory testing; specific document links, revision dates, and any additional study citations are finalized during editorial review before this article is published.</p>
+      <ol>
+        <li id="ref-1"><span class="src-title">General requirements for the competence of testing and calibration laboratories.</span> <span class="src-pub">ISO/IEC 17025:2017</span>, International Organization for Standardization. <a class="src-link" href="#">View source →</a> <a class="backref" href="#cite-1" aria-label="Back to citation">↩</a></li>
+        <li id="ref-2"><span class="src-title">Elemental Impurities — Limits.</span> <span class="src-pub">USP General Chapter &lt;232&gt;</span>, United States Pharmacopeia. <a class="src-link" href="#">View source →</a> <a class="backref" href="#cite-2">↩</a></li>
+        <li id="ref-3"><span class="src-title">Elemental Impurities — Procedures.</span> <span class="src-pub">USP General Chapter &lt;233&gt;</span>, United States Pharmacopeia. <a class="src-link" href="#">View source →</a> <a class="backref" href="#cite-3">↩</a></li>
+        <li id="ref-4"><span class="src-title">Residual Solvents.</span> <span class="src-pub">USP General Chapter &lt;467&gt;</span>, United States Pharmacopeia. <a class="src-link" href="#">View source →</a> <a class="backref" href="#cite-4">↩</a></li>
+        <li id="ref-5"><span class="src-title">Microbiological Examination of Nonsterile Products.</span> <span class="src-pub">USP General Chapters &lt;2021&gt;/&lt;2022&gt;</span>, United States Pharmacopeia. <a class="src-link" href="#">View source →</a> <a class="backref" href="#cite-5">↩</a></li>
+        <li id="ref-6"><span class="src-title">Current Good Manufacturing Practice in Manufacturing, Packaging, Labeling, or Holding Operations for Dietary Supplements.</span> <span class="src-pub">21 CFR Part 111</span>, U.S. Food &amp; Drug Administration. <a class="src-link" href="#">View source →</a> <a class="backref" href="#cite-6">↩</a></li>
+      </ol>
+    </section>
+
+    <!-- author -->
+    <div class="author-card">
+      <div class="avatar">BS</div>
+      <div>
+        <b>Biohacker Standard Editorial</b>
+        <p>Our editorial desk reads the trials and the lab reports so you don't have to. Every article is checked against its sources before it's published, and updated when the evidence moves.</p>
+      </div>
+    </div>
+
+    <p class="disclosure-note">This article is for informational and educational purposes only and is not medical advice — talk to a licensed clinician before making any health decision. Biohacker Standard may earn a commission from vetted brands linked in our content, at no extra cost to you; affiliation never overrides our sourcing and testing standard.</p>
+  </div>
+
+  <!-- related -->
+  <section class="related">
+    <div class="container">
+      <div class="sec-head"><span class="eyebrow">Keep reading</span><h2>Related from the desk</h2></div>
+      <div class="grid g3">
+        <a class="card" href="article.html"><div class="media"><span class="tag">Peptides</span></div><div class="card-body"><div class="kicker"><span class="tagpill">Peptides</span><span class="meta">11 min</span></div><h3>Reading a peptide study without fooling yourself</h3><p>Sample size, endpoints, and the difference between a mechanism and a measured outcome.</p></div></a>
+        <a class="card" href="article.html"><div class="media"><span class="tag">Vendors</span></div><div class="card-body"><div class="kicker"><span class="tagpill">Vendors</span><span class="meta">6 min</span></div><h3>The 5 questions every supplier should answer</h3><p>What separates a lab willing to show its work from one hoping you won't ask.</p></div></a>
+        <a class="card" href="article.html"><div class="media"><span class="tag">Longevity</span></div><div class="card-body"><div class="kicker"><span class="tagpill">Longevity</span><span class="meta">10 min</span></div><h3>Cellular senescence for non-scientists</h3><p>What "zombie cells" are, why they accumulate, and where the senolytics evidence stands.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- subscribe -->
+  <section class="band">
+    <div class="container" style="text-align:center; max-width:640px;">
+      <span class="eyebrow" style="display:inline-flex; margin-bottom:14px">Subscribe to the Standard</span>
+      <h2 style="margin-bottom:14px">Get the next breakdown in your inbox.</h2>
+      <p style="color:var(--muted); font-size:18px; margin-bottom:28px">One sourced research brief a week. The COA Literacy Guide free when you subscribe.</p>
+      <form class="subscribe-form" id="subscribe-form" style="display:flex; gap:10px; max-width:480px; margin:0 auto;">
+        <input type="email" name="email" placeholder="Email address" aria-label="Email address" required style="flex:1; padding:15px 20px; border-radius:var(--radius-pill); border:1px solid var(--hair); background:var(--surface); font-family:inherit; font-size:15px; color:var(--ink);">
+        <button type="submit" class="btn btn-blue">Subscribe →</button>
+      </form>
+      <div class="form-success" id="subscribe-success" style="max-width:460px; margin:16px auto 0">You're in — check your inbox to confirm.</div>
+    </div>
+  </section>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:16px">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" stroke="#4F9C7C" stroke-width="1.1"/><path d="M12 6c0 4 8 4 8 10s-8 6-8 10" stroke="#4F9C7C" stroke-width="1.4"/><path d="M20 6c0 4-8 4-8 10s8 6 8 10" stroke="#AE8B4E" stroke-width="1.4"/><path d="M12.5 11h7M12 16h8M12.5 21h7" stroke="#4F9C7C" stroke-width="1"/></svg>
+          <b>Biohacker Standard</b>
+        </a>
+        <p style="color:#9AA2AC; font-size:14px; max-width:34ch">Independent research and education for peptides, longevity, and human performance.</p>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="directory.html">Directory</a></li><li><a href="index.html#get-guide">Free Guide</a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="#">Medical Disclaimer</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Affiliate Disclosure</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <p class="disclosure">Biohacker Standard is a research and education publisher. Content is for informational purposes only and is not medical advice — talk to a licensed clinician before making any health decision. We may earn a commission from vetted partners and affiliated brands, at no extra cost to you; affiliation never overrides our sourcing and testing standard. © 2026 Biohacker Standard.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var sub = document.getElementById('subscribe-form');
+    if (!sub) return;
+    sub.addEventListener('submit', function (e) {
+      e.preventDefault();
+      sub.querySelector('button[type=submit]').textContent = 'Subscribing…';
+      setTimeout(function () { sub.style.display = 'none'; document.getElementById('subscribe-success').style.display = 'block'; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
